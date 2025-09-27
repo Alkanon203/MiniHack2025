@@ -13,7 +13,7 @@ def IngredientsInput():
                 
                 if item:
                     ingredients.append(item)
-
+                break
         return ingredients
 ingredients = IngredientsInput()
 print(ingredients)
