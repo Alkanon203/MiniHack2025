@@ -7,34 +7,45 @@ breakfast_recipes = ["eggs", "pancakes", "porridge", "waffles"]
 lunch_recipes = ["burgers", "fries", "pizza"]
 dinner_recipes = ["steak", "pasta", "salad"]
 
-breakfast = int(input("How many meals for breakfast do you want?: "))
-lunch = int(input("How many meals for lunch do you want?: "))
-dinner = int(input("How many meals for dinner do you want?: "))
-
-
 def br(meal,food):
-    for i in range(0,meal):
-        recipes = random.choice(food)
-        print(f"Breakfast: {recipes}")
+    recipes = random.choice(food)
+    print(f"Breakfast: {recipes}")
 
 
 def lu(meal,food):
-    for i in range(0,meal):
-        recipes = random.choice(food)
-        print(f"Lunch: {recipes}")
+    recipes = random.choice(food)
+    print(f"Lunch: {recipes}")
 
 
 def di(meal,food):
-    for i in range(0,meal):
-        recipes = random.choice(food)
-        print(f"Dinner: {recipes}")
+    recipes = random.choice(food)
+    print(f"Dinner: {recipes}")
 
+def main():
+    print("\nWelcome to the G-ATE-R Meal Planner!!!")
+    print("--------------------------------------")
+    print("Instructions:")
+    print("Please input the amount of days you want your meals planned and a list of ingredients you currently have. ", end="")
+    print("We will generate a list of recipes for each day.")
 
-print("\nMeal Plan")
-print("---------------------------")
-if breakfast > 0:
-    br(breakfast,breakfast_recipes)
-if lunch > 0:
-    lu(lunch,lunch_recipes)
-if dinner > 0:
-    di(dinner,dinner_recipes)
+    while True:
+        try:
+            days = int(input("\nHow many days do you want your meals planned?: "))
+            if days > 0:
+                print("\nMeal Plan")
+                print("---------------------------")
+                for i in range(1,days+1):
+                    print(f"Day{i}")
+                    breakfast = br(days,breakfast_recipes)
+                    lunch = lu(days,lunch_recipes)
+                    dinner = di(days,dinner_recipes)
+                    print()
+                break
+            else:
+                print("Invalid input. Please choose a positive integer.")
+        except ValueError:
+            print("Invalid input. Please choose a positive integer.")
+
+    print("Thank you for planning your meals with the G-ATE-R. We hope to see you again!")
+
+main()
