@@ -130,7 +130,7 @@ def main():
 
     while True:
         view_choice = input(
-            "\nWould you like to see a recipe? (yes/no): ").lower()
+            "\nWould you like to see a recipe? (yes/no): ").lower().strip()
         if view_choice == 'no':
             break
         if view_choice == 'yes':
